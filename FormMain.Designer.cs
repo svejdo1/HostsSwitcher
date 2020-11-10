@@ -32,27 +32,7 @@
             this.menuStripExit = new System.Windows.Forms.ToolStripMenuItem();
             this.quickSwitchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panContent = new System.Windows.Forms.Panel();
-            this.button_save = new System.Windows.Forms.Button();
-            this.button_removeDomain = new System.Windows.Forms.Button();
-            this.button_add_domain = new System.Windows.Forms.Button();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.copyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.panBottom = new System.Windows.Forms.Panel();
-            this.txtLog = new System.Windows.Forms.TextBox();
-            this.lblLog = new System.Windows.Forms.Label();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.removeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.hostsFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.viewCurrentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.openFolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.button_use_as_hosts = new System.Windows.Forms.Button();
+            this.listView1 = new ListViewEx.ListViewEx();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.listBox_hosts = new System.Windows.Forms.ListBox();
@@ -60,13 +40,33 @@
             this.button_new = new System.Windows.Forms.Button();
             this.button_delete = new System.Windows.Forms.Button();
             this.button_copy = new System.Windows.Forms.Button();
-            this.listView1 = new ListViewEx.ListViewEx();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.copyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.removeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.hostsFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewCurrentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openFolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.button_save = new System.Windows.Forms.Button();
+            this.button_removeDomain = new System.Windows.Forms.Button();
+            this.button_add_domain = new System.Windows.Forms.Button();
+            this.panBottom = new System.Windows.Forms.Panel();
+            this.button_use_as_hosts = new System.Windows.Forms.Button();
+            this.txtLog = new System.Windows.Forms.TextBox();
+            this.lblLog = new System.Windows.Forms.Label();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.menuStrip.SuspendLayout();
             this.panContent.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
-            this.panBottom.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
+            this.panBottom.SuspendLayout();
             this.SuspendLayout();
             // 
             // notifyIcon
@@ -119,40 +119,98 @@
             this.panContent.Size = new System.Drawing.Size(1014, 640);
             this.panContent.TabIndex = 4;
             // 
-            // button_save
+            // listView1
             // 
-            this.button_save.Location = new System.Drawing.Point(698, 6);
-            this.button_save.Name = "button_save";
-            this.button_save.Size = new System.Drawing.Size(121, 35);
-            this.button_save.TabIndex = 11;
-            this.button_save.Text = "Save";
-            this.button_save.UseVisualStyleBackColor = true;
-            this.button_save.Click += new System.EventHandler(this.button_save_Click);
+            this.listView1.AllowColumnReorder = true;
+            this.listView1.CheckBoxes = true;
+            this.listView1.DoubleClickActivation = false;
+            this.listView1.FullRowSelect = true;
+            this.listView1.GridLines = true;
+            this.listView1.HideSelection = false;
+            listViewItem2.StateImageIndex = 0;
+            this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            listViewItem2});
+            this.listView1.Location = new System.Drawing.Point(251, 36);
+            this.listView1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.listView1.MultiSelect = false;
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(754, 604);
+            this.listView1.TabIndex = 19;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.Details;
             // 
-            // button_removeDomain
+            // panel1
             // 
-            this.button_removeDomain.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_removeDomain.Location = new System.Drawing.Point(901, 6);
-            this.button_removeDomain.Name = "button_removeDomain";
-            this.button_removeDomain.Size = new System.Drawing.Size(49, 35);
-            this.button_removeDomain.TabIndex = 12;
-            this.button_removeDomain.Text = "-";
-            this.button_removeDomain.UseVisualStyleBackColor = true;
-            this.button_removeDomain.Click += new System.EventHandler(this.button_removeDomain_Click);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.listBox_hosts);
+            this.panel1.Controls.Add(this.groupBox1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel1.Location = new System.Drawing.Point(0, 33);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(236, 607);
+            this.panel1.TabIndex = 18;
             // 
-            // button_add_domain
+            // label1
             // 
-            this.button_add_domain.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_add_domain.Location = new System.Drawing.Point(956, 6);
-            this.button_add_domain.Name = "button_add_domain";
-            this.button_add_domain.Size = new System.Drawing.Size(49, 35);
-            this.button_add_domain.TabIndex = 11;
-            this.button_add_domain.Text = "+";
-            this.button_add_domain.UseVisualStyleBackColor = true;
-            this.button_add_domain.Click += new System.EventHandler(this.button_add_domain_Click);
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 4);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(65, 20);
+            this.label1.TabIndex = 14;
+            this.label1.Text = "Profiles:";
+            // 
+            // listBox_hosts
+            // 
+            this.listBox_hosts.FormattingEnabled = true;
+            this.listBox_hosts.ItemHeight = 20;
+            this.listBox_hosts.Location = new System.Drawing.Point(16, 27);
+            this.listBox_hosts.Name = "listBox_hosts";
+            this.listBox_hosts.Size = new System.Drawing.Size(202, 384);
+            this.listBox_hosts.TabIndex = 11;
+            this.listBox_hosts.SelectedIndexChanged += new System.EventHandler(this.listBox_hosts_SelectedIndexChanged);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.button_new);
+            this.groupBox1.Controls.Add(this.button_delete);
+            this.groupBox1.Controls.Add(this.button_copy);
+            this.groupBox1.Location = new System.Drawing.Point(16, 417);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(202, 169);
+            this.groupBox1.TabIndex = 8;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Host Profiles";
+            // 
+            // button_new
+            // 
+            this.button_new.Location = new System.Drawing.Point(36, 34);
+            this.button_new.Name = "button_new";
+            this.button_new.Size = new System.Drawing.Size(121, 35);
+            this.button_new.TabIndex = 10;
+            this.button_new.Text = "New";
+            this.button_new.UseVisualStyleBackColor = true;
+            // 
+            // button_delete
+            // 
+            this.button_delete.Location = new System.Drawing.Point(36, 123);
+            this.button_delete.Name = "button_delete";
+            this.button_delete.Size = new System.Drawing.Size(121, 35);
+            this.button_delete.TabIndex = 9;
+            this.button_delete.Text = "Delete";
+            this.button_delete.UseVisualStyleBackColor = true;
+            // 
+            // button_copy
+            // 
+            this.button_copy.Location = new System.Drawing.Point(36, 82);
+            this.button_copy.Name = "button_copy";
+            this.button_copy.Size = new System.Drawing.Size(121, 35);
+            this.button_copy.TabIndex = 8;
+            this.button_copy.Text = "Copy";
+            this.button_copy.UseVisualStyleBackColor = true;
             // 
             // menuStrip1
             // 
+            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
@@ -173,7 +231,7 @@
             this.deleteToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(54, 32);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(54, 29);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // saveToolStripMenuItem
@@ -215,6 +273,86 @@
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
+            // editToolStripMenuItem
+            // 
+            this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addToolStripMenuItem,
+            this.removeToolStripMenuItem});
+            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(58, 29);
+            this.editToolStripMenuItem.Text = "Edit";
+            // 
+            // addToolStripMenuItem
+            // 
+            this.addToolStripMenuItem.Name = "addToolStripMenuItem";
+            this.addToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Space)));
+            this.addToolStripMenuItem.Size = new System.Drawing.Size(246, 34);
+            this.addToolStripMenuItem.Text = "Add";
+            this.addToolStripMenuItem.Click += new System.EventHandler(this.addToolStripMenuItem_Click);
+            // 
+            // removeToolStripMenuItem
+            // 
+            this.removeToolStripMenuItem.Name = "removeToolStripMenuItem";
+            this.removeToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.Delete;
+            this.removeToolStripMenuItem.Size = new System.Drawing.Size(246, 34);
+            this.removeToolStripMenuItem.Text = "Remove";
+            this.removeToolStripMenuItem.Click += new System.EventHandler(this.removeToolStripMenuItem_Click);
+            // 
+            // hostsFileToolStripMenuItem
+            // 
+            this.hostsFileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.viewCurrentToolStripMenuItem,
+            this.openFolderToolStripMenuItem});
+            this.hostsFileToolStripMenuItem.Name = "hostsFileToolStripMenuItem";
+            this.hostsFileToolStripMenuItem.Size = new System.Drawing.Size(105, 29);
+            this.hostsFileToolStripMenuItem.Text = "Hosts File";
+            // 
+            // viewCurrentToolStripMenuItem
+            // 
+            this.viewCurrentToolStripMenuItem.Name = "viewCurrentToolStripMenuItem";
+            this.viewCurrentToolStripMenuItem.Size = new System.Drawing.Size(214, 34);
+            this.viewCurrentToolStripMenuItem.Text = "View Current";
+            this.viewCurrentToolStripMenuItem.Click += new System.EventHandler(this.viewCurrentToolStripMenuItem_Click);
+            // 
+            // openFolderToolStripMenuItem
+            // 
+            this.openFolderToolStripMenuItem.Name = "openFolderToolStripMenuItem";
+            this.openFolderToolStripMenuItem.Size = new System.Drawing.Size(214, 34);
+            this.openFolderToolStripMenuItem.Text = "Open Folder";
+            this.openFolderToolStripMenuItem.Click += new System.EventHandler(this.openFolderToolStripMenuItem_Click);
+            // 
+            // button_save
+            // 
+            this.button_save.Location = new System.Drawing.Point(698, 6);
+            this.button_save.Name = "button_save";
+            this.button_save.Size = new System.Drawing.Size(121, 35);
+            this.button_save.TabIndex = 11;
+            this.button_save.Text = "Save";
+            this.button_save.UseVisualStyleBackColor = true;
+            this.button_save.Click += new System.EventHandler(this.button_save_Click);
+            // 
+            // button_removeDomain
+            // 
+            this.button_removeDomain.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_removeDomain.Location = new System.Drawing.Point(901, 6);
+            this.button_removeDomain.Name = "button_removeDomain";
+            this.button_removeDomain.Size = new System.Drawing.Size(49, 35);
+            this.button_removeDomain.TabIndex = 12;
+            this.button_removeDomain.Text = "-";
+            this.button_removeDomain.UseVisualStyleBackColor = true;
+            this.button_removeDomain.Click += new System.EventHandler(this.button_removeDomain_Click);
+            // 
+            // button_add_domain
+            // 
+            this.button_add_domain.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_add_domain.Location = new System.Drawing.Point(956, 6);
+            this.button_add_domain.Name = "button_add_domain";
+            this.button_add_domain.Size = new System.Drawing.Size(49, 35);
+            this.button_add_domain.TabIndex = 11;
+            this.button_add_domain.Text = "+";
+            this.button_add_domain.UseVisualStyleBackColor = true;
+            this.button_add_domain.Click += new System.EventHandler(this.button_add_domain_Click);
+            // 
             // panBottom
             // 
             this.panBottom.Controls.Add(this.button_use_as_hosts);
@@ -229,6 +367,15 @@
             this.panBottom.Name = "panBottom";
             this.panBottom.Size = new System.Drawing.Size(1014, 104);
             this.panBottom.TabIndex = 5;
+            // 
+            // button_use_as_hosts
+            // 
+            this.button_use_as_hosts.Location = new System.Drawing.Point(547, 6);
+            this.button_use_as_hosts.Name = "button_use_as_hosts";
+            this.button_use_as_hosts.Size = new System.Drawing.Size(121, 35);
+            this.button_use_as_hosts.TabIndex = 13;
+            this.button_use_as_hosts.Text = "Apply";
+            this.button_use_as_hosts.UseVisualStyleBackColor = true;
             // 
             // txtLog
             // 
@@ -259,151 +406,6 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
-            // editToolStripMenuItem
-            // 
-            this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addToolStripMenuItem,
-            this.removeToolStripMenuItem});
-            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(58, 32);
-            this.editToolStripMenuItem.Text = "Edit";
-            // 
-            // addToolStripMenuItem
-            // 
-            this.addToolStripMenuItem.Name = "addToolStripMenuItem";
-            this.addToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Space)));
-            this.addToolStripMenuItem.Size = new System.Drawing.Size(246, 34);
-            this.addToolStripMenuItem.Text = "Add";
-            this.addToolStripMenuItem.Click += new System.EventHandler(this.addToolStripMenuItem_Click);
-            // 
-            // removeToolStripMenuItem
-            // 
-            this.removeToolStripMenuItem.Name = "removeToolStripMenuItem";
-            this.removeToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.Delete;
-            this.removeToolStripMenuItem.Size = new System.Drawing.Size(246, 34);
-            this.removeToolStripMenuItem.Text = "Remove";
-            this.removeToolStripMenuItem.Click += new System.EventHandler(this.removeToolStripMenuItem_Click);
-            // 
-            // hostsFileToolStripMenuItem
-            // 
-            this.hostsFileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.viewCurrentToolStripMenuItem,
-            this.openFolderToolStripMenuItem});
-            this.hostsFileToolStripMenuItem.Name = "hostsFileToolStripMenuItem";
-            this.hostsFileToolStripMenuItem.Size = new System.Drawing.Size(105, 32);
-            this.hostsFileToolStripMenuItem.Text = "Hosts File";
-            // 
-            // viewCurrentToolStripMenuItem
-            // 
-            this.viewCurrentToolStripMenuItem.Name = "viewCurrentToolStripMenuItem";
-            this.viewCurrentToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
-            this.viewCurrentToolStripMenuItem.Text = "View Current";
-            this.viewCurrentToolStripMenuItem.Click += new System.EventHandler(this.viewCurrentToolStripMenuItem_Click);
-            // 
-            // openFolderToolStripMenuItem
-            // 
-            this.openFolderToolStripMenuItem.Name = "openFolderToolStripMenuItem";
-            this.openFolderToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
-            this.openFolderToolStripMenuItem.Text = "Open Folder";
-            this.openFolderToolStripMenuItem.Click += new System.EventHandler(this.openFolderToolStripMenuItem_Click);
-            // 
-            // button_use_as_hosts
-            // 
-            this.button_use_as_hosts.Location = new System.Drawing.Point(547, 6);
-            this.button_use_as_hosts.Name = "button_use_as_hosts";
-            this.button_use_as_hosts.Size = new System.Drawing.Size(121, 35);
-            this.button_use_as_hosts.TabIndex = 13;
-            this.button_use_as_hosts.Text = "Apply";
-            this.button_use_as_hosts.UseVisualStyleBackColor = true;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.listBox_hosts);
-            this.panel1.Controls.Add(this.groupBox1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(0, 33);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(236, 607);
-            this.panel1.TabIndex = 18;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 4);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(65, 20);
-            this.label1.TabIndex = 14;
-            this.label1.Text = "Profiles:";
-            // 
-            // listBox_hosts
-            // 
-            this.listBox_hosts.FormattingEnabled = true;
-            this.listBox_hosts.ItemHeight = 20;
-            this.listBox_hosts.Location = new System.Drawing.Point(16, 27);
-            this.listBox_hosts.Name = "listBox_hosts";
-            this.listBox_hosts.Size = new System.Drawing.Size(202, 384);
-            this.listBox_hosts.TabIndex = 11;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.button_new);
-            this.groupBox1.Controls.Add(this.button_delete);
-            this.groupBox1.Controls.Add(this.button_copy);
-            this.groupBox1.Location = new System.Drawing.Point(16, 417);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(202, 169);
-            this.groupBox1.TabIndex = 8;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Host Profiles";
-            // 
-            // button_new
-            // 
-            this.button_new.Location = new System.Drawing.Point(36, 34);
-            this.button_new.Name = "button_new";
-            this.button_new.Size = new System.Drawing.Size(121, 35);
-            this.button_new.TabIndex = 10;
-            this.button_new.Text = "New";
-            this.button_new.UseVisualStyleBackColor = true;
-            // 
-            // button_delete
-            // 
-            this.button_delete.Location = new System.Drawing.Point(36, 123);
-            this.button_delete.Name = "button_delete";
-            this.button_delete.Size = new System.Drawing.Size(121, 35);
-            this.button_delete.TabIndex = 9;
-            this.button_delete.Text = "Delete";
-            this.button_delete.UseVisualStyleBackColor = true;
-            // 
-            // button_copy
-            // 
-            this.button_copy.Location = new System.Drawing.Point(36, 82);
-            this.button_copy.Name = "button_copy";
-            this.button_copy.Size = new System.Drawing.Size(121, 35);
-            this.button_copy.TabIndex = 8;
-            this.button_copy.Text = "Copy";
-            this.button_copy.UseVisualStyleBackColor = true;
-            // 
-            // listView1
-            // 
-            this.listView1.AllowColumnReorder = true;
-            this.listView1.CheckBoxes = true;
-            this.listView1.DoubleClickActivation = false;
-            this.listView1.FullRowSelect = true;
-            this.listView1.GridLines = true;
-            this.listView1.HideSelection = false;
-            listViewItem2.StateImageIndex = 0;
-            this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem2});
-            this.listView1.Location = new System.Drawing.Point(251, 36);
-            this.listView1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.listView1.MultiSelect = false;
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(754, 604);
-            this.listView1.TabIndex = 19;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
-            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -424,13 +426,13 @@
             this.menuStrip.ResumeLayout(false);
             this.panContent.ResumeLayout(false);
             this.panContent.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.panBottom.ResumeLayout(false);
             this.panBottom.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
 
     }
