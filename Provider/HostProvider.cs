@@ -37,8 +37,16 @@ namespace Barbar.HostsSwitcher.Provider {
     public void CopyHosts(string sourceFileName, string targetFileName) {
       File.Copy(Path.Combine(m_Directory, sourceFileName), Path.Combine(m_Directory, targetFileName), true);
     }
-    
-    public void DeleteHosts(string fileName) {
+
+        public void WriteHosts(string hostsText)
+        {
+            string filepath = Path.Combine(m_Directory, "hosts");
+            //System.IO.StreamWriter fp = new System.IO.StreamWriter(filepath, true);
+            File.WriteAllText(filepath,hostsText);
+            //fp.Close();
+        }
+
+        public void DeleteHosts(string fileName) {
       File.Delete(Path.Combine(m_Directory, fileName));  
     }
     
