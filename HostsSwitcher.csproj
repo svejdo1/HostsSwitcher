@@ -8,7 +8,7 @@
     <ProjectGuid>{36F0F014-2BE4-45F1-807A-4D5BCDA64CA4}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Curtin.HostsSwitcher</RootNamespace>
+    <RootNamespace>Barber.HostsSwitcher</RootNamespace>
     <AssemblyName>HostsSwitcher</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
