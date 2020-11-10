@@ -66,36 +66,36 @@ namespace Barbar.HostsSwitcher {
       txtLog.ScrollToCaret();
     }
 
-    private void toolStrip_ItemClicked(object sender, ToolStripItemClickedEventArgs e) {
-      if (e.ClickedItem == btnExit) {
-        Application.Exit();
-      }
-      if (e.ClickedItem == btnUseAsHosts && listHosts.SelectedItem != null) {
-        UseAsHosts((string)listHosts.SelectedItem);
-      }
-      if (e.ClickedItem == btnCopy && listHosts.SelectedItem != null) {
-        var formCopy = new FormCopy(string.Format("Copy {0} to which file ?", listHosts.SelectedItem));
-        var result = formCopy.ShowDialog(this);
-        if (result == DialogResult.OK && !string.IsNullOrEmpty(formCopy.FileName)) {
-          m_HostsProvider.CopyHosts((string)listHosts.SelectedItem, formCopy.FileName);
-          LogInfo("Copied {0} to {1}\r\n", listHosts.SelectedItem, formCopy.FileName);
-          RefreshList();
-        }
-      }
-      if (e.ClickedItem == btnDelete && listHosts.SelectedItem != null) {
-        if (MessageBox.Show(string.Format("Really delete {0} ?", listHosts.SelectedItem), string.Empty, MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes) {
-          m_HostsProvider.DeleteHosts((string)listHosts.SelectedItem);
-          LogInfo("Deleted {0}\r\n", listHosts.SelectedItem);
-          RefreshList();
-        }
-      }
-      if (e.ClickedItem == btnViewEdit && listHosts.SelectedItem != null) {
-        m_HostsProvider.LaunchEditor((string)listHosts.SelectedItem);
-      }
-      if (e.ClickedItem == btnOpenFolder) {
-        m_HostsProvider.OpenFolder();
-      }
-    }
+    //private void toolStrip_ItemClicked(object sender, ToolStripItemClickedEventArgs e) {
+    //  if (e.ClickedItem == btnExit) {
+    //    Application.Exit();
+    //  }
+    //  if (e.ClickedItem == btnUseAsHosts && listHosts.SelectedItem != null) {
+    //    UseAsHosts((string)listHosts.SelectedItem);
+    //  }
+    //  if (e.ClickedItem == btnCopy && listHosts.SelectedItem != null) {
+    //    var formCopy = new FormCopy(string.Format("Copy {0} to which file ?", listHosts.SelectedItem));
+    //    var result = formCopy.ShowDialog(this);
+    //    if (result == DialogResult.OK && !string.IsNullOrEmpty(formCopy.FileName)) {
+    //      m_HostsProvider.CopyHosts((string)listHosts.SelectedItem, formCopy.FileName);
+    //      LogInfo("Copied {0} to {1}\r\n", listHosts.SelectedItem, formCopy.FileName);
+    //      RefreshList();
+    //    }
+    //  }
+    //  if (e.ClickedItem == btnDelete && listHosts.SelectedItem != null) {
+    //    if (MessageBox.Show(string.Format("Really delete {0} ?", listHosts.SelectedItem), string.Empty, MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes) {
+    //      m_HostsProvider.DeleteHosts((string)listHosts.SelectedItem);
+    //      LogInfo("Deleted {0}\r\n", listHosts.SelectedItem);
+    //      RefreshList();
+    //    }
+    //  }
+    //  if (e.ClickedItem == btnViewEdit && listHosts.SelectedItem != null) {
+    //    m_HostsProvider.LaunchEditor((string)listHosts.SelectedItem);
+    //  }
+    //  if (e.ClickedItem == btnOpenFolder) {
+    //    m_HostsProvider.OpenFolder();
+    //  }
+    //}
 
     private void UseAsHosts(string selectedItem) {
       m_HostsProvider.ReplaceHosts(selectedItem);
@@ -120,5 +120,80 @@ namespace Barbar.HostsSwitcher {
         LogInfo("Copied {0} to hosts\r\n", listHosts.SelectedItem);
       }
     }
-  }
+
+        private void btnCopy_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button_use_as_hosts_Click(object sender, EventArgs e)
+        {
+            UseAsHosts((string)listHosts.SelectedItem);
+        }
+
+        private void button_copy_Click(object sender, EventArgs e)
+        {
+            var formCopy = new FormCopy(string.Format("Copy {0} to which file ?", listHosts.SelectedItem));
+            var result = formCopy.ShowDialog(this);
+            if (result == DialogResult.OK && !string.IsNullOrEmpty(formCopy.FileName))
+            {
+                m_HostsProvider.CopyHosts((string)listHosts.SelectedItem, formCopy.FileName);
+                LogInfo("Copied {0} to {1}\r\n", listHosts.SelectedItem, formCopy.FileName);
+                RefreshList();
+            }
+        }
+
+        private void button_delete_Click(object sender, EventArgs e)
+        {
+            //if (e.ClickedItem == btnDelete && listHosts.SelectedItem != null)
+            //{
+                if (MessageBox.Show(string.Format("Really delete {0} ?", listHosts.SelectedItem), string.Empty, MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
+                {
+                    m_HostsProvider.DeleteHosts((string)listHosts.SelectedItem);
+                    LogInfo("Deleted {0}\r\n", listHosts.SelectedItem);
+                    RefreshList();
+                }
+            //}
+        }
+
+        private void btnOpenFolder_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void button_openFolder_Click(object sender, EventArgs e)
+        {
+            m_HostsProvider.OpenFolder();
+        }
+
+        private void button_viewCurrent_Click(object sender, EventArgs e)
+        {
+            m_HostsProvider.LaunchEditor((string)listHosts.SelectedItem);
+        }
+
+        private void newToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button_new_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void copyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            button_copy_Click(object sender, EventArgs e);
+        }
+
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            button_delete_Click(object sender, EventArgs e);
+        }
+    }
 }
