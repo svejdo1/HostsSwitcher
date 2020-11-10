@@ -17,5 +17,16 @@ namespace Barbar.HostsSwitcher {
       lblText.Text = inputText;
       txtFileName.Text = string.Empty;
     }
-  }
+
+        private void btnOK_Click(object sender, EventArgs e)
+        {
+            txtFileName.Text=txtFileName.Text.Replace(" ", "_");
+            txtFileName.Text = txtFileName.Text.Replace("(", "");
+            txtFileName.Text = txtFileName.Text.Replace(")", "");
+            if (txtFileName.Text.Length==0)
+            {
+                this.DialogResult = DialogResult.Cancel;
+            }
+        }
+    }
 }

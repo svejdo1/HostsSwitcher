@@ -25,111 +25,49 @@
     private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
-            this.toolStrip = new System.Windows.Forms.ToolStrip();
-            this.btnUseAsHosts = new System.Windows.Forms.ToolStripButton();
-            this.btnCopy = new System.Windows.Forms.ToolStripButton();
-            this.btnDelete = new System.Windows.Forms.ToolStripButton();
-            this.btnViewEdit = new System.Windows.Forms.ToolStripButton();
-            this.btnOpenFolder = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.btnExit = new System.Windows.Forms.ToolStripButton();
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("Deneme...");
             this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.menuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.menuStripShow = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripExit = new System.Windows.Forms.ToolStripMenuItem();
+            this.quickSwitchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panContent = new System.Windows.Forms.Panel();
-            this.lblHosts = new System.Windows.Forms.Label();
-            this.lblUsing = new System.Windows.Forms.Label();
+            this.listView1 = new ListViewEx.ListViewEx();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.listHosts = new System.Windows.Forms.ListBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.listBox_hosts = new System.Windows.Forms.ListBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button_new = new System.Windows.Forms.Button();
+            this.button_delete = new System.Windows.Forms.Button();
+            this.button_copy = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.copyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.removeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.hostsFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewCurrentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openFolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.button_save = new System.Windows.Forms.Button();
+            this.button_removeDomain = new System.Windows.Forms.Button();
+            this.button_add_domain = new System.Windows.Forms.Button();
             this.panBottom = new System.Windows.Forms.Panel();
+            this.button_use_as_hosts = new System.Windows.Forms.Button();
             this.txtLog = new System.Windows.Forms.TextBox();
             this.lblLog = new System.Windows.Forms.Label();
-            this.quickSwitchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStrip.SuspendLayout();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.menuStrip.SuspendLayout();
             this.panContent.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.panBottom.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // toolStrip
-            // 
-            this.toolStrip.AutoSize = false;
-            this.toolStrip.Dock = System.Windows.Forms.DockStyle.Right;
-            this.toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btnUseAsHosts,
-            this.btnCopy,
-            this.btnDelete,
-            this.btnViewEdit,
-            this.btnOpenFolder,
-            this.toolStripSeparator1,
-            this.btnExit});
-            this.toolStrip.Location = new System.Drawing.Point(3, 0);
-            this.toolStrip.Name = "toolStrip";
-            this.toolStrip.Size = new System.Drawing.Size(111, 152);
-            this.toolStrip.TabIndex = 1;
-            this.toolStrip.Text = "toolStrip1";
-            this.toolStrip.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStrip_ItemClicked);
-            // 
-            // btnUseAsHosts
-            // 
-            this.btnUseAsHosts.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.btnUseAsHosts.Image = ((System.Drawing.Image)(resources.GetObject("btnUseAsHosts.Image")));
-            this.btnUseAsHosts.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnUseAsHosts.Name = "btnUseAsHosts";
-            this.btnUseAsHosts.Size = new System.Drawing.Size(109, 17);
-            this.btnUseAsHosts.Text = "&Use as HOSTS";
-            // 
-            // btnCopy
-            // 
-            this.btnCopy.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.btnCopy.Image = ((System.Drawing.Image)(resources.GetObject("btnCopy.Image")));
-            this.btnCopy.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnCopy.Name = "btnCopy";
-            this.btnCopy.Size = new System.Drawing.Size(109, 17);
-            this.btnCopy.Text = "&Copy";
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.btnDelete.Image = ((System.Drawing.Image)(resources.GetObject("btnDelete.Image")));
-            this.btnDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(109, 17);
-            this.btnDelete.Text = "&Delete";
-            // 
-            // btnViewEdit
-            // 
-            this.btnViewEdit.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.btnViewEdit.Image = ((System.Drawing.Image)(resources.GetObject("btnViewEdit.Image")));
-            this.btnViewEdit.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnViewEdit.Name = "btnViewEdit";
-            this.btnViewEdit.Size = new System.Drawing.Size(109, 17);
-            this.btnViewEdit.Text = "&View/Edit";
-            // 
-            // btnOpenFolder
-            // 
-            this.btnOpenFolder.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.btnOpenFolder.Image = ((System.Drawing.Image)(resources.GetObject("btnOpenFolder.Image")));
-            this.btnOpenFolder.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnOpenFolder.Name = "btnOpenFolder";
-            this.btnOpenFolder.Size = new System.Drawing.Size(109, 17);
-            this.btnOpenFolder.Text = "&Open Folder";
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(109, 6);
-            // 
-            // btnExit
-            // 
-            this.btnExit.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
-            this.btnExit.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(109, 17);
-            this.btnExit.Text = "&Exit";
             // 
             // notifyIcon
             // 
@@ -141,124 +79,343 @@
             // 
             // menuStrip
             // 
+            this.menuStrip.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuStripShow,
             this.menuStripExit,
             this.quickSwitchToolStripMenuItem});
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(153, 92);
+            this.menuStrip.Size = new System.Drawing.Size(186, 100);
             // 
             // menuStripShow
             // 
             this.menuStripShow.Name = "menuStripShow";
-            this.menuStripShow.Size = new System.Drawing.Size(152, 22);
+            this.menuStripShow.Size = new System.Drawing.Size(185, 32);
             this.menuStripShow.Text = "&Show";
             this.menuStripShow.Click += new System.EventHandler(this.menuStripShow_Click);
             // 
             // menuStripExit
             // 
             this.menuStripExit.Name = "menuStripExit";
-            this.menuStripExit.Size = new System.Drawing.Size(152, 22);
+            this.menuStripExit.Size = new System.Drawing.Size(185, 32);
             this.menuStripExit.Text = "&Exit";
             this.menuStripExit.Click += new System.EventHandler(this.menuStripExit_Click);
             // 
+            // quickSwitchToolStripMenuItem
+            // 
+            this.quickSwitchToolStripMenuItem.Name = "quickSwitchToolStripMenuItem";
+            this.quickSwitchToolStripMenuItem.Size = new System.Drawing.Size(185, 32);
+            this.quickSwitchToolStripMenuItem.Text = "&Quick Switch";
+            // 
             // panContent
             // 
-            this.panContent.Controls.Add(this.lblHosts);
-            this.panContent.Controls.Add(this.lblUsing);
+            this.panContent.Controls.Add(this.listView1);
             this.panContent.Controls.Add(this.panel1);
-            this.panContent.Controls.Add(this.listHosts);
+            this.panContent.Controls.Add(this.menuStrip1);
             this.panContent.Dock = System.Windows.Forms.DockStyle.Top;
             this.panContent.Location = new System.Drawing.Point(0, 0);
+            this.panContent.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panContent.Name = "panContent";
-            this.panContent.Size = new System.Drawing.Size(361, 259);
+            this.panContent.Size = new System.Drawing.Size(1014, 640);
             this.panContent.TabIndex = 4;
             // 
-            // lblHosts
+            // listView1
             // 
-            this.lblHosts.AutoSize = true;
-            this.lblHosts.Font = new System.Drawing.Font("Consolas", 9.75F);
-            this.lblHosts.Location = new System.Drawing.Point(240, 195);
-            this.lblHosts.Name = "lblHosts";
-            this.lblHosts.Size = new System.Drawing.Size(42, 15);
-            this.lblHosts.TabIndex = 5;
-            this.lblHosts.Text = "hosts";
-            // 
-            // lblUsing
-            // 
-            this.lblUsing.AutoSize = true;
-            this.lblUsing.Font = new System.Drawing.Font("Consolas", 9.75F);
-            this.lblUsing.Location = new System.Drawing.Point(240, 171);
-            this.lblUsing.Name = "lblUsing";
-            this.lblUsing.Size = new System.Drawing.Size(119, 15);
-            this.lblUsing.TabIndex = 4;
-            this.lblUsing.Text = "Currently using:";
+            this.listView1.AllowColumnReorder = true;
+            this.listView1.CheckBoxes = true;
+            this.listView1.DoubleClickActivation = false;
+            this.listView1.FullRowSelect = true;
+            this.listView1.GridLines = true;
+            this.listView1.HideSelection = false;
+            listViewItem2.StateImageIndex = 0;
+            this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            listViewItem2});
+            this.listView1.Location = new System.Drawing.Point(251, 36);
+            this.listView1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.listView1.MultiSelect = false;
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(754, 604);
+            this.listView1.TabIndex = 19;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.Details;
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.toolStrip);
-            this.panel1.Location = new System.Drawing.Point(237, 12);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.listBox_hosts);
+            this.panel1.Controls.Add(this.groupBox1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel1.Location = new System.Drawing.Point(0, 33);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(114, 152);
-            this.panel1.TabIndex = 3;
+            this.panel1.Size = new System.Drawing.Size(236, 607);
+            this.panel1.TabIndex = 18;
             // 
-            // listHosts
+            // label1
             // 
-            this.listHosts.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listHosts.FormattingEnabled = true;
-            this.listHosts.ItemHeight = 15;
-            this.listHosts.Location = new System.Drawing.Point(12, 12);
-            this.listHosts.Name = "listHosts";
-            this.listHosts.Size = new System.Drawing.Size(216, 229);
-            this.listHosts.TabIndex = 2;
-            this.listHosts.DoubleClick += new System.EventHandler(this.listHosts_DoubleClick);
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 4);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(65, 20);
+            this.label1.TabIndex = 14;
+            this.label1.Text = "Profiles:";
+            // 
+            // listBox_hosts
+            // 
+            this.listBox_hosts.FormattingEnabled = true;
+            this.listBox_hosts.ItemHeight = 20;
+            this.listBox_hosts.Location = new System.Drawing.Point(16, 27);
+            this.listBox_hosts.Name = "listBox_hosts";
+            this.listBox_hosts.Size = new System.Drawing.Size(202, 384);
+            this.listBox_hosts.TabIndex = 11;
+            this.listBox_hosts.SelectedIndexChanged += new System.EventHandler(this.listBox_hosts_SelectedIndexChanged);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.button_new);
+            this.groupBox1.Controls.Add(this.button_delete);
+            this.groupBox1.Controls.Add(this.button_copy);
+            this.groupBox1.Location = new System.Drawing.Point(16, 417);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(202, 169);
+            this.groupBox1.TabIndex = 8;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Host Profiles";
+            // 
+            // button_new
+            // 
+            this.button_new.Location = new System.Drawing.Point(36, 34);
+            this.button_new.Name = "button_new";
+            this.button_new.Size = new System.Drawing.Size(121, 35);
+            this.button_new.TabIndex = 10;
+            this.button_new.Text = "New";
+            this.button_new.UseVisualStyleBackColor = true;
+            // 
+            // button_delete
+            // 
+            this.button_delete.Location = new System.Drawing.Point(36, 123);
+            this.button_delete.Name = "button_delete";
+            this.button_delete.Size = new System.Drawing.Size(121, 35);
+            this.button_delete.TabIndex = 9;
+            this.button_delete.Text = "Delete";
+            this.button_delete.UseVisualStyleBackColor = true;
+            // 
+            // button_copy
+            // 
+            this.button_copy.Location = new System.Drawing.Point(36, 82);
+            this.button_copy.Name = "button_copy";
+            this.button_copy.Size = new System.Drawing.Size(121, 35);
+            this.button_copy.TabIndex = 8;
+            this.button_copy.Text = "Copy";
+            this.button_copy.UseVisualStyleBackColor = true;
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem,
+            this.editToolStripMenuItem,
+            this.hostsFileToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1014, 33);
+            this.menuStrip1.TabIndex = 9;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.saveToolStripMenuItem,
+            this.newToolStripMenuItem,
+            this.copyToolStripMenuItem,
+            this.deleteToolStripMenuItem,
+            this.exitToolStripMenuItem});
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(54, 29);
+            this.fileToolStripMenuItem.Text = "File";
+            // 
+            // saveToolStripMenuItem
+            // 
+            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
+            this.saveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(241, 34);
+            this.saveToolStripMenuItem.Text = "Save";
+            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
+            // 
+            // newToolStripMenuItem
+            // 
+            this.newToolStripMenuItem.Name = "newToolStripMenuItem";
+            this.newToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(241, 34);
+            this.newToolStripMenuItem.Text = "New";
+            this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
+            // 
+            // copyToolStripMenuItem
+            // 
+            this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
+            this.copyToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
+            this.copyToolStripMenuItem.Size = new System.Drawing.Size(241, 34);
+            this.copyToolStripMenuItem.Text = "Copy";
+            this.copyToolStripMenuItem.Click += new System.EventHandler(this.copyToolStripMenuItem_Click);
+            // 
+            // deleteToolStripMenuItem
+            // 
+            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+            this.deleteToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Delete)));
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(241, 34);
+            this.deleteToolStripMenuItem.Text = "Delete";
+            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(241, 34);
+            this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
+            // editToolStripMenuItem
+            // 
+            this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addToolStripMenuItem,
+            this.removeToolStripMenuItem});
+            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(58, 29);
+            this.editToolStripMenuItem.Text = "Edit";
+            // 
+            // addToolStripMenuItem
+            // 
+            this.addToolStripMenuItem.Name = "addToolStripMenuItem";
+            this.addToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Space)));
+            this.addToolStripMenuItem.Size = new System.Drawing.Size(246, 34);
+            this.addToolStripMenuItem.Text = "Add";
+            this.addToolStripMenuItem.Click += new System.EventHandler(this.addToolStripMenuItem_Click);
+            // 
+            // removeToolStripMenuItem
+            // 
+            this.removeToolStripMenuItem.Name = "removeToolStripMenuItem";
+            this.removeToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.Delete;
+            this.removeToolStripMenuItem.Size = new System.Drawing.Size(246, 34);
+            this.removeToolStripMenuItem.Text = "Remove";
+            this.removeToolStripMenuItem.Click += new System.EventHandler(this.removeToolStripMenuItem_Click);
+            // 
+            // hostsFileToolStripMenuItem
+            // 
+            this.hostsFileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.viewCurrentToolStripMenuItem,
+            this.openFolderToolStripMenuItem});
+            this.hostsFileToolStripMenuItem.Name = "hostsFileToolStripMenuItem";
+            this.hostsFileToolStripMenuItem.Size = new System.Drawing.Size(105, 29);
+            this.hostsFileToolStripMenuItem.Text = "Hosts File";
+            // 
+            // viewCurrentToolStripMenuItem
+            // 
+            this.viewCurrentToolStripMenuItem.Name = "viewCurrentToolStripMenuItem";
+            this.viewCurrentToolStripMenuItem.Size = new System.Drawing.Size(214, 34);
+            this.viewCurrentToolStripMenuItem.Text = "View Current";
+            this.viewCurrentToolStripMenuItem.Click += new System.EventHandler(this.viewCurrentToolStripMenuItem_Click);
+            // 
+            // openFolderToolStripMenuItem
+            // 
+            this.openFolderToolStripMenuItem.Name = "openFolderToolStripMenuItem";
+            this.openFolderToolStripMenuItem.Size = new System.Drawing.Size(214, 34);
+            this.openFolderToolStripMenuItem.Text = "Open Folder";
+            this.openFolderToolStripMenuItem.Click += new System.EventHandler(this.openFolderToolStripMenuItem_Click);
+            // 
+            // button_save
+            // 
+            this.button_save.Location = new System.Drawing.Point(698, 6);
+            this.button_save.Name = "button_save";
+            this.button_save.Size = new System.Drawing.Size(121, 35);
+            this.button_save.TabIndex = 11;
+            this.button_save.Text = "Save";
+            this.button_save.UseVisualStyleBackColor = true;
+            this.button_save.Click += new System.EventHandler(this.button_save_Click);
+            // 
+            // button_removeDomain
+            // 
+            this.button_removeDomain.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_removeDomain.Location = new System.Drawing.Point(901, 6);
+            this.button_removeDomain.Name = "button_removeDomain";
+            this.button_removeDomain.Size = new System.Drawing.Size(49, 35);
+            this.button_removeDomain.TabIndex = 12;
+            this.button_removeDomain.Text = "-";
+            this.button_removeDomain.UseVisualStyleBackColor = true;
+            this.button_removeDomain.Click += new System.EventHandler(this.button_removeDomain_Click);
+            // 
+            // button_add_domain
+            // 
+            this.button_add_domain.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_add_domain.Location = new System.Drawing.Point(956, 6);
+            this.button_add_domain.Name = "button_add_domain";
+            this.button_add_domain.Size = new System.Drawing.Size(49, 35);
+            this.button_add_domain.TabIndex = 11;
+            this.button_add_domain.Text = "+";
+            this.button_add_domain.UseVisualStyleBackColor = true;
+            this.button_add_domain.Click += new System.EventHandler(this.button_add_domain_Click);
             // 
             // panBottom
             // 
+            this.panBottom.Controls.Add(this.button_use_as_hosts);
+            this.panBottom.Controls.Add(this.button_save);
+            this.panBottom.Controls.Add(this.button_removeDomain);
             this.panBottom.Controls.Add(this.txtLog);
+            this.panBottom.Controls.Add(this.button_add_domain);
             this.panBottom.Controls.Add(this.lblLog);
             this.panBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panBottom.Location = new System.Drawing.Point(0, 265);
+            this.panBottom.Location = new System.Drawing.Point(0, 648);
+            this.panBottom.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panBottom.Name = "panBottom";
-            this.panBottom.Size = new System.Drawing.Size(361, 111);
+            this.panBottom.Size = new System.Drawing.Size(1014, 104);
             this.panBottom.TabIndex = 5;
+            // 
+            // button_use_as_hosts
+            // 
+            this.button_use_as_hosts.Location = new System.Drawing.Point(547, 6);
+            this.button_use_as_hosts.Name = "button_use_as_hosts";
+            this.button_use_as_hosts.Size = new System.Drawing.Size(121, 35);
+            this.button_use_as_hosts.TabIndex = 13;
+            this.button_use_as_hosts.Text = "Apply";
+            this.button_use_as_hosts.UseVisualStyleBackColor = true;
             // 
             // txtLog
             // 
             this.txtLog.Font = new System.Drawing.Font("Consolas", 9.75F);
-            this.txtLog.Location = new System.Drawing.Point(7, 20);
+            this.txtLog.Location = new System.Drawing.Point(57, 11);
+            this.txtLog.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtLog.Multiline = true;
             this.txtLog.Name = "txtLog";
             this.txtLog.ReadOnly = true;
             this.txtLog.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtLog.Size = new System.Drawing.Size(344, 79);
+            this.txtLog.Size = new System.Drawing.Size(295, 77);
             this.txtLog.TabIndex = 1;
             // 
             // lblLog
             // 
             this.lblLog.AutoSize = true;
             this.lblLog.Font = new System.Drawing.Font("Consolas", 9.75F);
-            this.lblLog.Location = new System.Drawing.Point(4, 4);
+            this.lblLog.Location = new System.Drawing.Point(6, 6);
+            this.lblLog.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblLog.Name = "lblLog";
-            this.lblLog.Size = new System.Drawing.Size(28, 15);
+            this.lblLog.Size = new System.Drawing.Size(43, 23);
             this.lblLog.TabIndex = 0;
             this.lblLog.Text = "Log";
             // 
-            // quickSwitchToolStripMenuItem
+            // contextMenuStrip1
             // 
-            this.quickSwitchToolStripMenuItem.Name = "quickSwitchToolStripMenuItem";
-            this.quickSwitchToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.quickSwitchToolStripMenuItem.Text = "&Quick Switch";
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
             // FormMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(361, 376);
+            this.ClientSize = new System.Drawing.Size(1014, 752);
             this.Controls.Add(this.panBottom);
             this.Controls.Add(this.panContent);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MainMenuStrip = this.menuStrip1;
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormMain";
@@ -266,12 +423,14 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Hosts Manager";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormMain_FormClosing);
-            this.toolStrip.ResumeLayout(false);
-            this.toolStrip.PerformLayout();
             this.menuStrip.ResumeLayout(false);
             this.panContent.ResumeLayout(false);
             this.panContent.PerformLayout();
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.panBottom.ResumeLayout(false);
             this.panBottom.PerformLayout();
             this.ResumeLayout(false);
@@ -279,28 +438,41 @@
     }
 
     #endregion
-
-    private System.Windows.Forms.ToolStrip toolStrip;
-    private System.Windows.Forms.ToolStripButton btnUseAsHosts;
-    private System.Windows.Forms.ToolStripButton btnCopy;
-    private System.Windows.Forms.ToolStripButton btnDelete;
-    private System.Windows.Forms.ToolStripButton btnViewEdit;
-    private System.Windows.Forms.ToolStripButton btnOpenFolder;
-    private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-    private System.Windows.Forms.ToolStripButton btnExit;
     private System.Windows.Forms.NotifyIcon notifyIcon;
     private System.Windows.Forms.Panel panContent;
-    private System.Windows.Forms.ListBox listHosts;
     private System.Windows.Forms.Panel panBottom;
     private System.Windows.Forms.Label lblLog;
     private System.Windows.Forms.TextBox txtLog;
-    private System.Windows.Forms.Panel panel1;
     private System.Windows.Forms.ContextMenuStrip menuStrip;
     private System.Windows.Forms.ToolStripMenuItem menuStripExit;
     private System.Windows.Forms.ToolStripMenuItem menuStripShow;
-    private System.Windows.Forms.Label lblHosts;
-    private System.Windows.Forms.Label lblUsing;
     private System.Windows.Forms.ToolStripMenuItem quickSwitchToolStripMenuItem;
-  }
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem copyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
+        private System.Windows.Forms.Button button_removeDomain;
+        private System.Windows.Forms.Button button_add_domain;
+        private System.Windows.Forms.Button button_save;
+        private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem removeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem hostsFileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem viewCurrentToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem openFolderToolStripMenuItem;
+        private System.Windows.Forms.Button button_use_as_hosts;
+        private ListViewEx.ListViewEx listView1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ListBox listBox_hosts;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button button_new;
+        private System.Windows.Forms.Button button_delete;
+        private System.Windows.Forms.Button button_copy;
+    }
 }
 
