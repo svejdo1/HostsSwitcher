@@ -25,7 +25,7 @@
     private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("Deneme...");
+            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("Deneme...");
             this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.menuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.menuStripShow = new System.Windows.Forms.ToolStripMenuItem();
@@ -43,9 +43,14 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.copyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.importToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -57,9 +62,12 @@
             this.button_removeDomain = new System.Windows.Forms.Button();
             this.button_add_domain = new System.Windows.Forms.Button();
             this.panBottom = new System.Windows.Forms.Panel();
+            this.button_add_multiple = new System.Windows.Forms.Button();
             this.button_use_as_hosts = new System.Windows.Forms.Button();
             this.txtLog = new System.Windows.Forms.TextBox();
             this.lblLog = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.menuStrip.SuspendLayout();
             this.panContent.SuspendLayout();
@@ -127,9 +135,9 @@
             this.listView1.FullRowSelect = true;
             this.listView1.GridLines = true;
             this.listView1.HideSelection = false;
-            listViewItem2.StateImageIndex = 0;
+            listViewItem3.StateImageIndex = 0;
             this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem2});
+            listViewItem3});
             this.listView1.Location = new System.Drawing.Point(251, 36);
             this.listView1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.listView1.MultiSelect = false;
@@ -189,6 +197,7 @@
             this.button_new.TabIndex = 10;
             this.button_new.Text = "New";
             this.button_new.UseVisualStyleBackColor = true;
+            this.button_new.Click += new System.EventHandler(this.button_new_Click);
             // 
             // button_delete
             // 
@@ -198,6 +207,7 @@
             this.button_delete.TabIndex = 9;
             this.button_delete.Text = "Delete";
             this.button_delete.UseVisualStyleBackColor = true;
+            this.button_delete.Click += new System.EventHandler(this.button_delete_Click);
             // 
             // button_copy
             // 
@@ -207,10 +217,10 @@
             this.button_copy.TabIndex = 8;
             this.button_copy.Text = "Copy";
             this.button_copy.UseVisualStyleBackColor = true;
+            this.button_copy.Click += new System.EventHandler(this.button_copy_Click);
             // 
             // menuStrip1
             // 
-            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
@@ -226,9 +236,14 @@
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.saveToolStripMenuItem,
+            this.toolStripSeparator3,
             this.newToolStripMenuItem,
             this.copyToolStripMenuItem,
             this.deleteToolStripMenuItem,
+            this.toolStripSeparator1,
+            this.importToolStripMenuItem,
+            this.exportToolStripMenuItem,
+            this.toolStripSeparator2,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(54, 29);
@@ -241,6 +256,11 @@
             this.saveToolStripMenuItem.Size = new System.Drawing.Size(241, 34);
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(238, 6);
             // 
             // newToolStripMenuItem
             // 
@@ -265,6 +285,30 @@
             this.deleteToolStripMenuItem.Size = new System.Drawing.Size(241, 34);
             this.deleteToolStripMenuItem.Text = "Delete";
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(238, 6);
+            // 
+            // importToolStripMenuItem
+            // 
+            this.importToolStripMenuItem.Name = "importToolStripMenuItem";
+            this.importToolStripMenuItem.Size = new System.Drawing.Size(241, 34);
+            this.importToolStripMenuItem.Text = "Import Profiles";
+            this.importToolStripMenuItem.Click += new System.EventHandler(this.importToolStripMenuItem_Click);
+            // 
+            // exportToolStripMenuItem
+            // 
+            this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
+            this.exportToolStripMenuItem.Size = new System.Drawing.Size(241, 34);
+            this.exportToolStripMenuItem.Text = "Export Profiles";
+            this.exportToolStripMenuItem.Click += new System.EventHandler(this.exportToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(238, 6);
             // 
             // exitToolStripMenuItem
             // 
@@ -323,7 +367,7 @@
             // 
             // button_save
             // 
-            this.button_save.Location = new System.Drawing.Point(698, 6);
+            this.button_save.Location = new System.Drawing.Point(629, 9);
             this.button_save.Name = "button_save";
             this.button_save.Size = new System.Drawing.Size(121, 35);
             this.button_save.TabIndex = 11;
@@ -334,18 +378,20 @@
             // button_removeDomain
             // 
             this.button_removeDomain.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_removeDomain.Location = new System.Drawing.Point(901, 6);
+            this.button_removeDomain.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button_removeDomain.Location = new System.Drawing.Point(821, 5);
             this.button_removeDomain.Name = "button_removeDomain";
             this.button_removeDomain.Size = new System.Drawing.Size(49, 35);
             this.button_removeDomain.TabIndex = 12;
             this.button_removeDomain.Text = "-";
+            this.button_removeDomain.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.button_removeDomain.UseVisualStyleBackColor = true;
             this.button_removeDomain.Click += new System.EventHandler(this.button_removeDomain_Click);
             // 
             // button_add_domain
             // 
             this.button_add_domain.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_add_domain.Location = new System.Drawing.Point(956, 6);
+            this.button_add_domain.Location = new System.Drawing.Point(879, 5);
             this.button_add_domain.Name = "button_add_domain";
             this.button_add_domain.Size = new System.Drawing.Size(49, 35);
             this.button_add_domain.TabIndex = 11;
@@ -355,27 +401,42 @@
             // 
             // panBottom
             // 
+            this.panBottom.Controls.Add(this.button_add_multiple);
             this.panBottom.Controls.Add(this.button_use_as_hosts);
             this.panBottom.Controls.Add(this.button_save);
             this.panBottom.Controls.Add(this.button_removeDomain);
             this.panBottom.Controls.Add(this.txtLog);
             this.panBottom.Controls.Add(this.button_add_domain);
             this.panBottom.Controls.Add(this.lblLog);
+            this.panBottom.Controls.Add(this.label3);
+            this.panBottom.Controls.Add(this.label2);
             this.panBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panBottom.Location = new System.Drawing.Point(0, 648);
+            this.panBottom.Location = new System.Drawing.Point(0, 640);
             this.panBottom.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panBottom.Name = "panBottom";
-            this.panBottom.Size = new System.Drawing.Size(1014, 104);
+            this.panBottom.Size = new System.Drawing.Size(1014, 61);
             this.panBottom.TabIndex = 5;
+            // 
+            // button_add_multiple
+            // 
+            this.button_add_multiple.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_add_multiple.Location = new System.Drawing.Point(947, 6);
+            this.button_add_multiple.Name = "button_add_multiple";
+            this.button_add_multiple.Size = new System.Drawing.Size(49, 35);
+            this.button_add_multiple.TabIndex = 10;
+            this.button_add_multiple.Text = "+++";
+            this.button_add_multiple.UseVisualStyleBackColor = true;
+            this.button_add_multiple.Click += new System.EventHandler(this.button_add_multiple_Click);
             // 
             // button_use_as_hosts
             // 
-            this.button_use_as_hosts.Location = new System.Drawing.Point(547, 6);
+            this.button_use_as_hosts.Location = new System.Drawing.Point(489, 9);
             this.button_use_as_hosts.Name = "button_use_as_hosts";
             this.button_use_as_hosts.Size = new System.Drawing.Size(121, 35);
             this.button_use_as_hosts.TabIndex = 13;
             this.button_use_as_hosts.Text = "Apply";
             this.button_use_as_hosts.UseVisualStyleBackColor = true;
+            this.button_use_as_hosts.Click += new System.EventHandler(this.button_use_as_hosts_Click);
             // 
             // txtLog
             // 
@@ -386,7 +447,7 @@
             this.txtLog.Name = "txtLog";
             this.txtLog.ReadOnly = true;
             this.txtLog.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtLog.Size = new System.Drawing.Size(295, 77);
+            this.txtLog.Size = new System.Drawing.Size(399, 35);
             this.txtLog.TabIndex = 1;
             // 
             // lblLog
@@ -400,6 +461,24 @@
             this.lblLog.TabIndex = 0;
             this.lblLog.Text = "Log";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(814, 37);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(68, 20);
+            this.label3.TabIndex = 16;
+            this.label3.Text = "Remove";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(884, 37);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(38, 20);
+            this.label2.TabIndex = 15;
+            this.label2.Text = "Add";
+            // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
@@ -410,7 +489,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1014, 752);
+            this.ClientSize = new System.Drawing.Size(1014, 701);
             this.Controls.Add(this.panBottom);
             this.Controls.Add(this.panContent);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -473,6 +552,14 @@
         private System.Windows.Forms.Button button_new;
         private System.Windows.Forms.Button button_delete;
         private System.Windows.Forms.Button button_copy;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem importToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exportToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.Button button_add_multiple;
     }
 }
 

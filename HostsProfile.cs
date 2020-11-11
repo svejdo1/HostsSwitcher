@@ -141,9 +141,9 @@ namespace Barbar.HostsSwitcher
             return appSettingsFilePath;
         }
 
-        public static bool writeToSettingsXML(List<HostsProfile> myprofiles)
+        public static bool writeToSettingsXML(List<HostsProfile> myprofiles,string filepath)
         {
-            
+
 
             XmlDocument doc = new XmlDocument();
 
@@ -155,7 +155,7 @@ namespace Barbar.HostsSwitcher
 
             bool hasCurrent = false;
 
-            foreach(HostsProfile hp in myprofiles)
+            foreach (HostsProfile hp in myprofiles)
             {
                 if (hasCurrent)
                     hp.isCurrent = false;
@@ -167,9 +167,16 @@ namespace Barbar.HostsSwitcher
             }
 
             doc.AppendChild(profilesXMLnode);
-            doc.Save(getSettingsFilepath());
+            doc.Save(filepath);
 
             return true;
+        }
+
+        public static bool writeToSettingsXML(List<HostsProfile> myprofiles)
+        {
+            // Writes to default path
+
+            return writeToSettingsXML(myprofiles, getSettingsFilepath());
         }
 
         public static HostsProfile getCurrentProfile(List<HostsProfile> myprofiles)

@@ -9,18 +9,20 @@ using System.IO;
 using System.Drawing;
 using System.Drawing.Text;
 
-namespace Barbar.HostsSwitcher {
-  public partial class FormMain : Form {
-    private readonly IHostProvider m_HostsProvider;
+namespace Barbar.HostsSwitcher 
+{
+    public partial class FormMain : Form
+    {
+        private readonly IHostProvider m_HostsProvider;
 
-    public HostsProfile currentHosts;
-    public HostsProfile selectedProfile;
+        public HostsProfile currentHosts;
+        public HostsProfile selectedProfile;
 
-    public List<HostsProfile> profiles=new List<HostsProfile>();
+        public List<HostsProfile> profiles = new List<HostsProfile>();
 
-    public string appSettingsDir = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
-    public string appSettingsFilePath= Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData)+"\\HostsSwitcherProfiles.xml";
-       
+        public string appSettingsDir = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+        public string appSettingsFilePath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\HostsSwitcherProfiles.xml";
+
 
         private TextBox textBoxAddress;
         private TextBox textBoxRedir;
@@ -28,44 +30,46 @@ namespace Barbar.HostsSwitcher {
         private CheckBox isLocalHost;
         private Control[] Editors;
 
-        public FormMain() {
-      InitializeComponent();
+        public FormMain()
+        {
+            InitializeComponent();
 
-      m_HostsProvider = new HostProvider();
-      quickSwitchToolStripMenuItem.DropDownItemClicked += new ToolStripItemClickedEventHandler(quickSwitchToolStripMenuItem_DropDownItemClicked);
-      
-      Text = string.Format("Hosts Switcher - v.{0}", typeof(FormMain).Assembly.GetName().Version);
+            m_HostsProvider = new HostProvider();
+            quickSwitchToolStripMenuItem.DropDownItemClicked += new ToolStripItemClickedEventHandler(quickSwitchToolStripMenuItem_DropDownItemClicked);
+
+            Text = string.Format("Hosts Switcher - v.{0}", typeof(FormMain).Assembly.GetName().Version);
 
             listLocked = true;
             if (File.Exists(appSettingsFilePath))
-        {
-                profiles= HostsProfile.readFromXML(appSettingsFilePath);
+            {
+                profiles = HostsProfile.readFromXML(appSettingsFilePath);
                 currentHosts = HostsProfile.getCurrentProfile(profiles);
             }
-        else {
-                
-            List<HostsProfile> profiles = new List<HostsProfile>();
-            currentHosts = new HostsProfile();
-            profiles.Add(currentHosts);
-            HostsProfile.writeToSettingsXML(profiles);
-        }
+            else
+            {
+
+                List<HostsProfile> profiles = new List<HostsProfile>();
+                currentHosts = new HostsProfile();
+                profiles.Add(currentHosts);
+                HostsProfile.writeToSettingsXML(profiles);
+            }
             initializeListView();
-            
+
             selectedProfile = currentHosts;
             customizeHosts(selectedProfile);
             updateListBox();
             listView1.ItemChecked += new ItemCheckedEventHandler(listView_CheckedChanged);
-            
-            
-            
+
+
+
 
             listView1.CheckBoxes = true;
             listView1.SubItemClicked += new ListViewEx.SubItemEventHandler(listView1_SubItemClicked);
             listView1.SubItemEndEditing += new ListViewEx.SubItemEndEditingEventHandler(listView1_SubItemEndEditing);
             listView1.DoubleClickActivation = false;
-            
 
-            
+
+
         }
 
         volatile bool listLocked = false;
@@ -77,8 +81,8 @@ namespace Barbar.HostsSwitcher {
             int i = 1;
 
             foreach (Domain d in hp.domains)
-            { 
-                ListViewItem a = new ListViewItem(new string[] {i.ToString(), d.useLocalhost.ToString(), d.alsoWWW.ToString(), d.redirectedAddress, d.domainToRedirect });
+            {
+                ListViewItem a = new ListViewItem(new string[] { i.ToString(), d.useLocalhost.ToString(), d.alsoWWW.ToString(), d.redirectedAddress, d.domainToRedirect });
                 if (d.isEnabled)
                 {
                     a.BackColor = Color.PaleGreen;
@@ -96,7 +100,8 @@ namespace Barbar.HostsSwitcher {
             }
             listLocked = false;
         }
-        private void initializeListView() {
+        private void initializeListView()
+        {
             listLocked = true;
             isLocalHost = new CheckBox();
             isLocalHost.Name = "isLocalHost";
@@ -105,7 +110,7 @@ namespace Barbar.HostsSwitcher {
             isLocalHost.Size = new System.Drawing.Size(20, 20);
             isLocalHost.CheckedChanged += new EventHandler(control_CheckedChanged);
 
-            
+
 
 
             isWWW = new CheckBox();
@@ -114,11 +119,11 @@ namespace Barbar.HostsSwitcher {
             isWWW.Location = new System.Drawing.Point(32, 152);
             isWWW.Size = new System.Drawing.Size(20, 20);
             isWWW.CheckedChanged += new EventHandler(control_CheckedChanged);
-            
+
 
             textBoxRedir = new TextBox();
             textBoxRedir.Location = new Point(-100, -100);
-            
+
             textBoxAddress = new TextBox();
             textBoxAddress.Location = new Point(-100, -100);
 
@@ -164,7 +169,7 @@ namespace Barbar.HostsSwitcher {
             //listView1.Columns[3].ImageIndex = 0;
 
             listView1.Columns[4].Width = 200;
-  
+
             //listView1.Columns[6].Width = 5;
             listView1.View = View.Details;
             listLocked = false;
@@ -172,8 +177,8 @@ namespace Barbar.HostsSwitcher {
 
         private void listView_CheckedChanged(object sender, System.EventArgs e)
         {
-            if(!listLocked)
-            { 
+            if (!listLocked)
+            {
 
                 listView1.EndEditing(true);
                 listView1_updateItems();
@@ -186,7 +191,7 @@ namespace Barbar.HostsSwitcher {
             CheckBox checkControl = (CheckBox)sender;
             if (!listLocked)
             {
-                checkControl.Text=checkControl.Checked.ToString();
+                checkControl.Text = checkControl.Checked.ToString();
                 listView1.EndEditing(true);
                 listView1_updateItems();
             }
@@ -210,7 +215,7 @@ namespace Barbar.HostsSwitcher {
 
             foreach (ListViewItem lvItem in listView1.Items)
             {
-                if (lvItem!= null)
+                if (lvItem != null)
                 {
                     Domain d = new Domain(cleanURL(lvItem.SubItems[3].Text), cleanURL(lvItem.SubItems[4].Text));
                     d.isEnabled = lvItem.Checked;
@@ -230,7 +235,7 @@ namespace Barbar.HostsSwitcher {
                         lvItem.ForeColor = Color.DarkGray;
                     }
                 }
-               
+
                 i++;
             }
             profiles[listBox_hosts.SelectedIndex] = selectedProfile;
@@ -247,7 +252,7 @@ namespace Barbar.HostsSwitcher {
 
         private void listView1_SubItemClicked(object sender, ListViewEx.SubItemEventArgs e)
         {
-            
+
             listView1.StartEditing(Editors[e.SubItem], e.Item, e.SubItem);
         }
 
@@ -263,7 +268,7 @@ namespace Barbar.HostsSwitcher {
             quickSwitchToolStripMenuItem.CheckOnClick = true;
 
             int i = 0;
-            foreach (HostsProfile hp in  profiles)
+            foreach (HostsProfile hp in profiles)
             {
                 if (hp.isCurrent)
                 {
@@ -298,64 +303,32 @@ namespace Barbar.HostsSwitcher {
             }
         }
 
-        private void FormMain_FormClosing(object sender, FormClosingEventArgs e) {
-      if (e.CloseReason == CloseReason.UserClosing) {
-        e.Cancel = true;
-        this.Visible = false;
-      }
-    }
-
-    private void notifyIcon_MouseClick(object sender, MouseEventArgs e) {
-      if (e.Button == MouseButtons.Left) {
-        WindowState = FormWindowState.Normal;
-        this.Visible = true;
-        this.Focus();
-      }
-    }
-
-    private void LogInfo(string format, params object[] args) {
-      txtLog.Text += string.Format(CultureInfo.InvariantCulture, format, args);
-      txtLog.SelectionStart = txtLog.Text.Length;
-      txtLog.ScrollToCaret();
-    }
-
-        //private void toolStrip_ItemClicked(object sender, ToolStripItemClickedEventArgs e) {
-        //  if (e.ClickedItem == btnExit) {
-        //    Application.Exit();
-        //  }
-        //  if (e.ClickedItem == btnUseAsHosts && listHosts.SelectedItem != null) {
-        //    UseAsHosts((string)listHosts.SelectedItem);
-        //  }
-        //  if (e.ClickedItem == btnCopy && listHosts.SelectedItem != null) {
-        //    var formCopy = new FormCopy(string.Format("Copy {0} to which file ?", listHosts.SelectedItem));
-        //    var result = formCopy.ShowDialog(this);
-        //    if (result == DialogResult.OK && !string.IsNullOrEmpty(formCopy.FileName)) {
-        //      m_HostsProvider.CopyHosts((string)listHosts.SelectedItem, formCopy.FileName);
-        //      LogInfo("Copied {0} to {1}\r\n", listHosts.SelectedItem, formCopy.FileName);
-        //      RefreshList();
-        //    }
-        //  }
-        //  if (e.ClickedItem == btnDelete && listHosts.SelectedItem != null) {
-        //    if (MessageBox.Show(string.Format("Really delete {0} ?", listHosts.SelectedItem), string.Empty, MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes) {
-        //      m_HostsProvider.DeleteHosts((string)listHosts.SelectedItem);
-        //      LogInfo("Deleted {0}\r\n", listHosts.SelectedItem);
-        //      RefreshList();
-        //    }
-        //  }
-        //  if (e.ClickedItem == btnViewEdit && listHosts.SelectedItem != null) {
-        //    m_HostsProvider.LaunchEditor((string)listHosts.SelectedItem);
-        //  }
-        //  if (e.ClickedItem == btnOpenFolder) {
-        //    m_HostsProvider.OpenFolder();
-        //  }
-        //}
-
-        private void UseAsHosts(string selectedItem)
+        private void FormMain_FormClosing(object sender, FormClosingEventArgs e)
         {
-            m_HostsProvider.ReplaceHosts(selectedItem);
-            //lblHosts.Text = selectedItem;
-            LogInfo("Copied {0} to hosts\r\n", selectedItem);
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                e.Cancel = true;
+                this.Visible = false;
+            }
         }
+
+        private void notifyIcon_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                WindowState = FormWindowState.Normal;
+                this.Visible = true;
+                this.Focus();
+            }
+        }
+
+        private void LogInfo(string format, params object[] args)
+        {
+            txtLog.Text += string.Format(CultureInfo.InvariantCulture, format, args);
+            txtLog.SelectionStart = txtLog.Text.Length;
+            txtLog.ScrollToCaret();
+        }
+
 
         private void WriteHosts()
         {
@@ -364,28 +337,27 @@ namespace Barbar.HostsSwitcher {
             LogInfo("Written {0} to hosts\r\n", currentHosts.profileName);
         }
 
-        private void menuStripExit_Click(object sender, EventArgs e) {
-      Application.Exit();
-    }
-
-    private void menuStripShow_Click(object sender, EventArgs e) {
-      WindowState = FormWindowState.Normal;
-      this.Visible = true;
-      this.Focus();
-    }
-
-    //private void listHosts_DoubleClick(object sender, EventArgs e) {
-    //  if (listHosts.SelectedItem != null) {
-    //    m_HostsProvider.ReplaceHosts((string)listHosts.SelectedItem);
-    //    lblHosts.Text = (string)listHosts.SelectedItem;
-    //    LogInfo("Copied {0} to hosts\r\n", listHosts.SelectedItem);
-    //  }
-    //}
-
-        private void btnCopy_Click(object sender, EventArgs e)
+        private void menuStripExit_Click(object sender, EventArgs e)
         {
-
+            Application.Exit();
         }
+
+        private void menuStripShow_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Normal;
+            this.Visible = true;
+            this.Focus();
+        }
+
+        //private void listHosts_DoubleClick(object sender, EventArgs e) {
+        //  if (listHosts.SelectedItem != null) {
+        //    m_HostsProvider.ReplaceHosts((string)listHosts.SelectedItem);
+        //    lblHosts.Text = (string)listHosts.SelectedItem;
+        //    LogInfo("Copied {0} to hosts\r\n", listHosts.SelectedItem);
+        //  }
+        //}
+
+  
 
         private void button_use_as_hosts_Click(object sender, EventArgs e)
         {
@@ -418,12 +390,12 @@ namespace Barbar.HostsSwitcher {
             {
                 HostsProfile newHp = new HostsProfile();
 
-                foreach(Domain d in hp.domains)
+                foreach (Domain d in hp.domains)
                 {
                     newHp.domains.Add(d);
                 }
-               
-                newHp.profileName= formCopy.FileName;
+
+                newHp.profileName = formCopy.FileName;
                 newHp.isCurrent = false;
                 profiles.Add(newHp);
                 updateListBox();
@@ -438,45 +410,27 @@ namespace Barbar.HostsSwitcher {
             HostsProfile hp = getProfileByIndex(listBox_hosts.SelectedIndex);
             //if (e.ClickedItem == btnDelete && listHosts.SelectedItem != null)
             //{
-            if (hp.profileName!="Default"&&MessageBox.Show(string.Format("Really delete {0} ?", hp.profileName), string.Empty, MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
-                {
-                    if (hp.isCurrent)
-                        setCurrentByIndex(0);
-                    profiles.RemoveAt(listBox_hosts.SelectedIndex);
+            if (hp.profileName != "Default" && MessageBox.Show(string.Format("Really delete {0} ?", hp.profileName), string.Empty, MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
+            {
+                if (hp.isCurrent)
+                    setCurrentByIndex(0);
+                profiles.RemoveAt(listBox_hosts.SelectedIndex);
                 listBox_hosts.SelectedIndex = 0;
 
-                    //m_HostsProvider.DeleteHosts((string)listHosts.SelectedItem);
-                    //LogInfo("Deleted {0}\r\n", listHosts.SelectedItem);
-                    //RefreshList();
+                //m_HostsProvider.DeleteHosts((string)listHosts.SelectedItem);
+                //LogInfo("Deleted {0}\r\n", listHosts.SelectedItem);
+                //RefreshList();
                 updateListBox();
             }
             //}
         }
 
-        private void btnOpenFolder_Click(object sender, EventArgs e)
-        {
-
-        }
-
+      
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
-        private void button_openFolder_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void button_viewCurrent_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void newToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void button_new_Click(object sender, EventArgs e)
         {
@@ -496,18 +450,24 @@ namespace Barbar.HostsSwitcher {
 
         private void copyToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            button_copy_Click(null,  e);
+            button_copy_Click(null, e);
         }
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            button_delete_Click(null,  e);
+            button_delete_Click(null, e);
         }
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
             HostsProfile.writeToSettingsXML(profiles);
-            
+
+        }
+
+        private void newToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            button_new_Click(sender, e);
+
         }
 
         private void setCurrentByIndex(int curID)
@@ -524,12 +484,12 @@ namespace Barbar.HostsSwitcher {
                     hp.isCurrent = false;
                 i++;
             }
-           
+
             updateListBox();
         }
 
 
-        
+
         private void listBox_hosts_SelectedIndexChanged(object sender, EventArgs e)
         {
             selectedProfile = getProfileByIndex(listBox_hosts.SelectedIndex);
@@ -539,7 +499,7 @@ namespace Barbar.HostsSwitcher {
         private void button_add_domain_Click(object sender, EventArgs e)
         {
             //HostsProfile hp = getProfileByIndex(listBox_hosts.SelectedIndex);
-            if(selectedProfile.profileName!="Default")
+            if (selectedProfile.profileName != "Default")
             {
                 selectedProfile.domains.Add(new Domain("localhost", "theaddress.com"));
                 customizeHosts(selectedProfile);
@@ -557,8 +517,9 @@ namespace Barbar.HostsSwitcher {
             if (selectedProfile.profileName != "Default")
             {
                 int len = selectedProfile.domains.Count;
-              
-                for (int i = listView1.SelectedIndices.Count - 1; i >= 0; i--) {
+
+                for (int i = listView1.SelectedIndices.Count - 1; i >= 0; i--)
+                {
                     selectedProfile.domains.RemoveAt(listView1.SelectedIndices[i]);
                 }
                 customizeHosts(selectedProfile);
@@ -585,9 +546,95 @@ namespace Barbar.HostsSwitcher {
             m_HostsProvider.OpenFolder();
         }
 
-        private void listView1_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
+    
 
+        private void exportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog a = new SaveFileDialog();
+            a.Filter = "Exported Hosts Profiles (*.xml)|*.*";
+            a.FilterIndex = 1;
+            a.DefaultExt = ".xml";
+            a.RestoreDirectory = true;
+
+
+            if (a.ShowDialog() == DialogResult.OK)
+            {
+                HostsProfile.writeToSettingsXML(profiles, a.FileName);
+            }
+        }
+
+        private void importToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog a = new OpenFileDialog();
+            a.Filter = "Exported Hosts Profiles (*.xml)|*.*";
+            a.FilterIndex = 1;
+            a.RestoreDirectory = true;
+            if (a.ShowDialog() == DialogResult.OK)
+            {
+                profiles = HostsProfile.readFromXML(a.FileName);
+                currentHosts = HostsProfile.getCurrentProfile(profiles);
+
+                selectedProfile = currentHosts;
+                customizeHosts(selectedProfile);
+                updateListBox();
+            }
+        }
+
+        private void button_add_multiple_Click(object sender, EventArgs e)
+        {
+            TextBox inputHosts = new TextBox();
+            inputHosts.Dock = DockStyle.Fill;
+            inputHosts.BorderStyle = BorderStyle.None;
+            inputHosts.Multiline = true;
+            //inputHosts.Size.Y = 600;
+
+            Button okButt = new Button();
+            okButt.Text = "Import";
+            okButt.DialogResult = DialogResult.OK;
+            okButt.Dock = DockStyle.Bottom;
+
+            Button canButt = new Button();
+            canButt.Text = "Cancel";
+            canButt.DialogResult = DialogResult.Cancel;
+            canButt.Dock = DockStyle.Bottom;
+
+            Form InputMessageBox = new Form();
+            InputMessageBox.Text = "Import Hosts";
+            InputMessageBox.StartPosition = FormStartPosition.CenterScreen;
+
+            InputMessageBox.Controls.Add(inputHosts);
+            InputMessageBox.Controls.Add(okButt);
+            InputMessageBox.Controls.Add(canButt);
+            if (InputMessageBox.ShowDialog() == DialogResult.OK)
+            {
+                importHOSTS(inputHosts.Text);
+            }
+
+        }
+
+        private void importHOSTS(string text)
+        {
+            if (selectedProfile.profileName != "Default")
+            {
+                using (StringReader reader = new StringReader(text))
+                {
+                    string line;
+                    while ((line = reader.ReadLine()) != null)
+                    {
+                        
+                        String[] preCommentParts = line.Split('#');
+                        line = preCommentParts[0];
+                        line.Replace(" ", "\t");
+                        String[] parts = line.Split('\t');
+                        if(parts.Length>1&&parts[0].Length>1&&parts[1].Length>1)
+                            selectedProfile.domains.Add(new Domain(parts[0], parts[1]));// Do something with the line
+                        else if(parts.Length>0&&parts[0].Length>1)
+                            selectedProfile.domains.Add(new Domain("localhost", parts[0]));// Do something with the line
+                    }
+                    customizeHosts(selectedProfile);
+                }
+                //
+            }
         }
     }
 }
