@@ -15,8 +15,15 @@ namespace Barbar.HostsSwitcher {
     public FormCopy(string inputText) {
       InitializeComponent();
       lblText.Text = inputText;
-      txtFileName.Text = string.Empty;
+      txtFileName.Text = "NewProfile";
     }
+
+        public FormCopy(string inputText,string startingFileName)
+        {
+            InitializeComponent();
+            lblText.Text = inputText;
+            txtFileName.Text = startingFileName;
+        }
 
         private void btnOK_Click(object sender, EventArgs e)
         {

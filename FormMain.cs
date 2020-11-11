@@ -384,24 +384,32 @@ namespace Barbar.HostsSwitcher
         private void button_copy_Click(object sender, EventArgs e)
         {
             HostsProfile hp = getProfileByIndex(listBox_hosts.SelectedIndex);
-            var formCopy = new FormCopy(string.Format("Copy {0} to which file ?", hp.profileName));
+            var formCopy = new FormCopy(string.Format("Copy {0} to which file ?", hp.profileName),hp.profileName+"_Copy");
             var result = formCopy.ShowDialog(this);
             if (result == DialogResult.OK && !string.IsNullOrEmpty(formCopy.FileName))
             {
-                HostsProfile newHp = new HostsProfile();
-
-                foreach (Domain d in hp.domains)
+                if (checkForDuplicates(formCopy.FileName))
                 {
-                    newHp.domains.Add(d);
+                    MessageBox.Show("Error: '" + formCopy.FileName + "' is already an existing profile name");
                 }
+                else
+                {
 
-                newHp.profileName = formCopy.FileName;
-                newHp.isCurrent = false;
-                profiles.Add(newHp);
-                updateListBox();
-                //m_HostsProvider.CopyHosts((string)listHosts.SelectedItem, formCopy.FileName);
-                //LogInfo("Copied {0} to {1}\r\n", listHosts.SelectedItem, formCopy.FileName);
-                //RefreshList();
+                    HostsProfile newHp = new HostsProfile();
+
+                    foreach (Domain d in hp.domains)
+                    {
+                        newHp.domains.Add(d);
+                    }
+
+                    newHp.profileName = formCopy.FileName;
+                    newHp.isCurrent = false;
+                    profiles.Add(newHp);
+                    updateListBox();
+                        //m_HostsProvider.CopyHosts((string)listHosts.SelectedItem, formCopy.FileName);
+                        //LogInfo("Copied {0} to {1}\r\n", listHosts.SelectedItem, formCopy.FileName);
+                        //RefreshList();
+                }
             }
         }
 
@@ -438,14 +446,38 @@ namespace Barbar.HostsSwitcher
             var result = formCopy.ShowDialog(this);
             if (result == DialogResult.OK && !string.IsNullOrEmpty(formCopy.FileName))
             {
-                HostsProfile newHp = new HostsProfile();
-                newHp.profileName = formCopy.FileName;
-                newHp.isCurrent = false;
-                profiles.Add(newHp);
-                //m_HostsProvider.CopyHosts((string)listHosts.SelectedItem, formCopy.FileName);
-                //LogInfo("Copied {0} to {1}\r\n", listHosts.SelectedItem, formCopy.FileName);
-                updateListBox();
+                if(checkForDuplicates(formCopy.FileName))
+                {
+                    MessageBox.Show("Error: '"+formCopy.FileName+"' is already an existing profile name");
+                }
+                else
+                {
+                    HostsProfile newHp = new HostsProfile();
+                    newHp.profileName = formCopy.FileName;
+                    newHp.isCurrent = false;
+                    profiles.Add(newHp);
+                    //m_HostsProvider.CopyHosts((string)listHosts.SelectedItem, formCopy.FileName);
+                    //LogInfo("Copied {0} to {1}\r\n", listHosts.SelectedItem, formCopy.FileName);
+                    updateListBox();
+                }
+                
             }
+        }
+
+        private bool checkForDuplicates(string namecheck)
+        {
+            int i = 0;
+            foreach (HostsProfile hp in profiles)
+            {
+                if (hp.profileName==namecheck)
+                {
+                    return true;
+                }
+                
+                i++;
+            }
+
+            return false;
         }
 
         private void copyToolStripMenuItem_Click(object sender, EventArgs e)
