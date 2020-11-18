@@ -18,4 +18,4 @@ Please note web browsers have dns cache on their own so once you change hosts; y
 
 Using the Import Hosts tool (+++ icon in lower right) You can copy and paste in domains to be added, or whole hosts files for rapid entry
 
-![Hosts Import Tool Screenshot](/ImportHosts Example.png)
+![Hosts Import Tool](/ImportHosts Example.png)
