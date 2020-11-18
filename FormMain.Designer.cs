@@ -25,7 +25,7 @@
     private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
-            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("Deneme...");
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("Deneme...");
             this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.menuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.menuStripShow = new System.Windows.Forms.ToolStripMenuItem();
@@ -135,9 +135,9 @@
             this.listView1.FullRowSelect = true;
             this.listView1.GridLines = true;
             this.listView1.HideSelection = false;
-            listViewItem3.StateImageIndex = 0;
+            listViewItem1.StateImageIndex = 0;
             this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem3});
+            listViewItem1});
             this.listView1.Location = new System.Drawing.Point(251, 36);
             this.listView1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.listView1.MultiSelect = false;
@@ -176,6 +176,7 @@
             this.listBox_hosts.Size = new System.Drawing.Size(202, 384);
             this.listBox_hosts.TabIndex = 11;
             this.listBox_hosts.SelectedIndexChanged += new System.EventHandler(this.listBox_hosts_SelectedIndexChanged);
+            this.listBox_hosts.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBox_hosts_MouseDoubleClick);
             // 
             // groupBox1
             // 
@@ -221,6 +222,7 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,

@@ -668,5 +668,12 @@ namespace Barbar.HostsSwitcher
                 //
             }
         }
+
+        private void listBox_hosts_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            setCurrentByIndex(listBox_hosts.SelectedIndex);
+            HostsProfile.writeToSettingsXML(profiles);
+            WriteHosts();
+        }
     }
 }
