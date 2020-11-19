@@ -9,7 +9,7 @@ Enabled: Identifies if the line is to be used at all
 
 Local: Will use localhost instead of any specified Redirection
 
-Www: Will add both the original domain and www.originaldomain so that neither can be accessed
+Www: Will add both the original domain (originaldomain.com) and with www. appended (www.originaldomain.com) so that the redirect will apply to both entered addresses.
 
 Redirected: the IP address that the domain will be directed to
 
@@ -22,6 +22,6 @@ Please note web browsers have dns cache on their own so once you change hosts; y
 
 ![Hosts Switcher Screenshot](/hosts-switcher.png)
 
-Using the Import Hosts tool (+++ icon in lower right) You can copy and paste in domains to be added, or whole hosts files for rapid entry
+Using the Import Hosts tool (+++ icon in lower right) You can copy and paste in domains to be added, or whole hosts files for rapid entry. The Import tool also will accept lists of names separated by linebreaks (ex: google.com) or space/tab separated addressess and domain pairs (ex: 127.0.0.1  google.com). Comments denoted by # and following text will be ignored. If only a domain name is included in the import, the link will be imported into the current profile with a localhost redirect by default.
 
 ![Hosts Import Tool](/ImportHosts-Example.png)
